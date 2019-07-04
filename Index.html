@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Curso Vue.js</title>
 </head>
-
 <body>
     <div id="app">
-        Hola {{ nombre }}
-        <a :href="url" target="_blank">Ir a {{ pagina }}</a>
+        <div v-show="mostrar">
+            <h1>Este es mi título</h1>
+            <h2>Este es mi subtítulo</h2>
+            <a :href="url" target="_blank">Ir a {{ pagina }}</a>
+        </div>
+        <div v-show="!mostrar">
+            Esto está oculto
+        </div>
     </div>
 
     <script src="https://unpkg.com/vue"></script>
@@ -16,12 +23,11 @@
         let app = new Vue({
             el: '#app',
             data: {
-                nombre: 'Sacha',
                 url: 'https://google.com',
-                pagina: 'Google'
+                pagina: 'Google',
+                mostrar: true
             }
         })
     </script>
 </body>
-
 </html>
